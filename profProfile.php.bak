@@ -1,0 +1,60 @@
+<section class="content" id="section1"><br>
+        <p  style="text-indent:5px; color:white; font-size:20px; background-color:#0E4BF1; border-radius:5px;">Profile</p>
+		<br>
+		<table cellspacing=20 >
+		<tr><td>
+		<img src="proficon.png" height=130 width=140>
+		<td>
+		<div style="margin-left: 70px">
+		<p style="color:#0E4BF1; font-size:22px;"><i><b>Professor  <?php echo $row["fname"] . " " . $row["lname"] ."<br> "; ?></p></b></i><br>
+		<p style="font-size:15px"><?php echo  "<b>Email: </b>" .$row["email"] . " <br><b>  Phone Number: </b>" . $row["pPhoneNumber"]  ."<br><b> Location: </b>". $row["pCity"] ."<br><b> Nationality: </b>". $row["nationality"] ."<br> "; ?>	 
+		</p>
+		<br>
+		</table>
+		<p style="text-indent:5px;color:white; background-color:#0E4BF1;font-size:18px;border-radius:5px;">Biography</p><br>
+		<div style="font-size:16px";><b>
+		<?php echo $row["fname"]. " " .$row["lname"]. " is a professor at Byte Minds University having degree(s) in : " ?>
+		<?php foreach($result as $row){
+		echo $row["degrees"]. "."; }
+		$unserializedyears = unserialize($row["taughtyears"]);
+		echo " With ";
+		foreach ($unserializedyears as $value) {
+			echo $value. " years ";
+		};
+		echo " of experience in academia, Professor " .$row["lname"]. " brings a wealth of knowledge and expertise to the university community.";
+		?></b></div>
+		</div>		
+		<br>
+		<table>
+		<tr>
+        <td style="padding: 10px;padding-right: 180px;" rowspan="2">
+	    <table style="font-size:16px" cellspacing=15>
+		<tr>
+		<td colspan=2 style="color:white; background-color:#0E4BF1; font-size:18px;border-radius:5px;"><center>Personals<center></td>
+		<tr><b>
+		<?php echo "<td><span class='circle'> Gender: </span> ".$row["gender"] .  "</td><tr><td><span class='circle'>  Birthday: </span> " . $row["dob"]  ."</td><tr><td><span class='circle'> Place of Birth: </span> ". $row["pob"] ."</td><tr><td><span class='circle'> Marital Status: </span> ". $row["maritalstatus"] ; ?>
+		</tr>
+		</tr>
+		</table>
+        </td>
+        <td>
+		<table style="padding: 10px;"cellspacing=8><tr><td colspan=4 style="color:white; background-color:#0E4BF1; font-size:18px;border-radius:5px;"><center>Residence<center></td>
+		<tr><b>
+		<?php echo  "<td><span class='circle'>Region: </span> " .$row["pRegion"] . "</td><td><span class='circle'>Street: </span> ". $row["pStreet"] ."</td><tr><td><span class='circle'>  Building: </span> " . $row["pBuilding"]  ."</td><td><span class='circle'> Floor: </span> ". $row["pFloor"] ."</td></tr></table> "; ?>
+		</tr></tr>
+        </td>
+		</tr>
+		<tr>
+        <td>
+		<table style="padding: 10px;" cellspacing=8>
+		<tr><td colspan=2 style="color:white; background-color:#0E4BF1; font-size:18px;border-radius:5px;"><center>Education<center></td>
+		<tr>
+		<?php 
+		echo  "<td><span class='circle'>School: </span><b> " .$row["school"] . "</td><td></b><span class='circle'>  Degree Number: </span><b> " . $row["degreesnumbers"]  ."</td></b>";
+		?></td>
+			</table>
+        </td>
+    </tr>
+</table>
+		
+    </section>
